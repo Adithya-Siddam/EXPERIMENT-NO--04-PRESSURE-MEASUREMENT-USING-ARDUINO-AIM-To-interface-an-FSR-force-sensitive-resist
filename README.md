@@ -132,7 +132,7 @@ void loop(){
  
 ### OUTPUT:
 ![OUTPUT](img1.png)
-![OUTPUT](img2.png)
+![OUTPUT](img02.png)
 
 ### RESULTS : 
 Thus the interfacing using FSR(force sensitive resistor) is simulated in tinkerCAD.
