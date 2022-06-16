@@ -2,7 +2,7 @@
 
 
 ## AIM: 
-To interface an FSR(force sensitive resistor) and scale the output voltage obtained to pressure applied 
+To interface an FSR(force sensitive resistor) and measure the force applied, indicate the change in force applied using LEDs.
  
 ### COMPONENTS REQUIRED:
 1.	FSR  (force sensitive resistor)
@@ -75,9 +75,12 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 10.	Plot the graph for the output voltage vs the resistance 
 
 
-### PROGRAM 
+### PROGRAM:
+Developed By : S Adithya Chowdary.
+
+Reg. No : 212221230100.
  ~~~
- //Define pins:
+//Define pins:
 #define fsrpin A0
 #define led1 2
 #define led2 3
@@ -125,47 +128,11 @@ void loop(){
   }
   else digitalWrite(led6, LOW);
 }
-    
-  
-  
-
  ~~~
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+### OUTPUT:
+![OUTPUT](img1.png)
+![OUTPUT](img2.png)
 
-![image](https://user-images.githubusercontent.com/36288975/163533136-5f8d00f2-8456-4d46-b243-d94d45f83eee.png)
-
-### TABLE -02 OUTPUT VOLTAGES AND CHANGE IN RESISTANCES
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### RESULTS : Arduino uno is interfaced with FSR and output values are indicated on a graph.
+### RESULTS : 
+Thus the interfacing using FSR(force sensitive resistor) is simulated in tinkerCAD.
