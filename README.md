@@ -2,7 +2,7 @@
 
 
 ## AIM: 
-To interface an FSR(force sensitive resistor) and measure the force applied, indicate the change in force applied using LEDs.
+To interface an FSR(force sensitive resistor) and scale the output voltage obtained to pressure applied 
  
 ### COMPONENTS REQUIRED:
 1.	FSR  (force sensitive resistor)
@@ -60,7 +60,7 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 
 ### FIGURE-03 CIRCUIT DIAGRAM
 
-
+![02](https://user-images.githubusercontent.com/94226297/189469761-9295d853-cee3-4449-81dc-a7a54ebcabb8.png)
 
 ### PROCEDURE:
 1.	Connect the circuit as per the circuit diagram 
@@ -75,64 +75,53 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 10.	Plot the graph for the output voltage vs the resistance 
 
 
-### PROGRAM:
-Developed By : S Adithya Chowdary.
+### PROGRAM 
+```
+ Roll no : 212221230100 
+ Name : S Adithya Chowdary
+ Department : Artificial Intelligence and Data Science.
 
-Reg. No : 212221230100.
- ~~~
-//Define pins:
-#define fsrpin A0
-#define led1 2
-#define led2 3
-#define led3 4
-#define led4 5
-#define led5 6
-#define led6 7
 
-//Define variables:
-int fsrreading;
-void setup(){
+
+int sensorvalue=A0;
+
+void setup()
+{
   Serial.begin(9600);
-  pinMode(led1, OUTPUT);
-  pinMode(led2, OUTPUT);
-  pinMode(led3, OUTPUT);
-  pinMode(led4, OUTPUT);
-  pinMode(led5, OUTPUT);
-  pinMode(led6, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
 }
-void loop(){
-  fsrreading = analogRead(fsrpin);
-  Serial.println(fsrreading);
-  if(fsrreading > 150){
-    digitalWrite(led1, HIGH);
-  }
-  else digitalWrite(led1, LOW);
-  if(fsrreading > 300){
-    digitalWrite(led2, HIGH);
-  }
-  else digitalWrite(led2, LOW);
-  if(fsrreading > 450){
-    digitalWrite(led3, HIGH);
-  }
-  else digitalWrite(led3, LOW);
-  if(fsrreading > 600){
-    digitalWrite(led4, HIGH);
-  }
-  else digitalWrite(led4, LOW);
-  if(fsrreading > 750){
-    digitalWrite(led5, HIGH);
-  }
-  else digitalWrite(led5, LOW);
-  if(fsrreading > 900){
-    digitalWrite(led6, HIGH);
-  }
-  else digitalWrite(led6, LOW);
-}
- ~~~
- 
-### OUTPUT:
-![OUTPUT](img1.png)
-![OUTPUT](img02.png)
 
-### RESULTS : 
-Thus the interfacing using FSR(force sensitive resistor) is simulated in tinkerCAD.
+void loop()
+{
+  sensorvalue= analogRead(A0);
+  int n=map(sensorvalue,0,466,0,10);
+  delay(100);
+  Serial.print("Raw Values = ");
+  Serial.println(sensorvalue);
+  Serial.print("Force = ");
+  Serial.println(n);
+  delay(100);
+ 
+} 
+ ```
+### TABLE -02 standard deviation table 
+![1](https://user-images.githubusercontent.com/94226297/189469765-e8a3c848-0061-42ec-82f8-a8054f4452ac.jpeg)
+
+### Population Standard Deviation
+
+The population standard deviation, the standard definition of σ, is used when an entire population can be measured, and is the square root of the variance of a given data set. In cases where every member of a population can be sampled, the following equation can be used to find the standard deviation of the entire population:
+
+
+Where
+xi is an individual value
+μ is the mean/expected value
+N is the total number of values
+
+For those unfamiliar with summation notation, the equation above may seem daunting, but when addressed through its individual components, this summation is not particularly complicated. The i=1 in the summation indicates the starting index, i.e. for the data set 1, 3, 4, 7, 8, i=1 would be 1, i=2 would be 3, and so on. Hence the summation notation simply means to perform the operation of (xi - μ)2 on each value through N, which in this case is 5 since there are 5 values in this data set.
+
+EX:           μ = (1+3+4+7+8) / 5 = 4.6        
+σ = √[(1 - 4.6)2 + (3 - 4.6)2 + ... + (8 - 4.6)2)]/5
+σ = √(12.96 + 2.56 + 0.36 + 5.76 + 11.56)/5 = 2.577
+
+### RESULTS :
+ Arduino uno is interfaced with FSR and output values are indicated on a graph.
